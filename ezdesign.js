@@ -46,6 +46,9 @@ ezDez.trans = function(s)
 ezDez.radius = function(n)
 { return '-webkit-border-radius: '+n+';-moz-border-radius: '+n+';border-radius: '+n+';' }
 
+ezDez.blur = function(n)
+{ return "-webkit-filter: blur("+n+"px); filter: blur("+n+"px); filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='"+n+"');" }
+
 
 //ATTR MANIPULATION
 $( "[data-trans]" ).each(function() {
@@ -56,6 +59,11 @@ $( "[data-trans]" ).each(function() {
 $( "[data-radius]" ).each(function() {
   _d = $( this ).attr('data-radius'); 
     $( this ).attr('style',strun($( this ).attr('style'))+';'+ezDez.radius(_d));
+});
+
+$( "[data-blur]" ).each(function() {
+  _d = $( this ).attr('data-blur'); 
+    $( this ).attr('style',strun($( this ).attr('style'))+';'+ezDez.blur(_d));
 });
 
 }//NOTJQ ELSE
