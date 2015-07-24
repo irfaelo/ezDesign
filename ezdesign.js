@@ -1,7 +1,7 @@
 // EzDeZ (C) INDIANAYOURSELF.COM (MIT for release)
 // (C) Ignacio Ramos 2015 @irfaelo 
 // indianayourself.com - @indianayourself
-// REQUIRE JQUERY
+// *** REQUIRE JQUERY *** APPEND BEFORE BODY CLOSE TAG ***
 
 //AUXILIARY FN
 strexpl = function (s,p){return s.split(p)}
