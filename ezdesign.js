@@ -50,6 +50,12 @@ ezDez.radius = function(n)
 ezDez.blur = function(n)
 { return "-webkit-filter: blur("+n+"px); filter: blur("+n+"px); filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='"+n+"');" }
 
+ezDez.tiltX = function(n)
+{ return "-moz-transform: skewX("+n+"deg);-webkit-transform: skewX("+n+"deg);-o-transform: skewX("+n+"deg);-ms-transform: skewX("+n+"deg);transform: skewX("+n+"deg);" }
+
+ezDez.tiltY = function(n)
+{ return "-moz-transform: skewY("+n+"deg);-webkit-transform: skewY("+n+"deg);-o-transform: skewY("+n+"deg);-ms-transform: skewY("+n+"deg);transform: skewY("+n+"deg);" }
+
 
 //ATTR MANIPULATION
 $( "[data-trans]" ).each(function() {
@@ -66,5 +72,18 @@ $( "[data-blur]" ).each(function() {
   _d = $( this ).attr('data-blur'); 
     $( this ).attr('style',strun($( this ).attr('style'))+';'+ezDez.blur(_d));
 });
+
+$( "[data-tiltx]" ).each(function() {
+  _d = $( this ).attr('data-tiltx');  
+   // $( this ).wrap(  "<div style='" + ezDez.tiltY(_d) + "'> </div>");
+    $( this ).attr('style',strun($( this ).attr('style'))+';'+ezDez.tiltX(_d));
+});
+
+$( "[data-tilty]" ).each(function() {
+  _d = $( this ).attr('data-tilty');  
+    $( this ).wrapInner(  "<div style='" + ezDez.tiltY(_d*-1) + "'> </div>");
+    $( this ).attr('style',strun($( this ).attr('style'))+';'+ezDez.tiltY(_d));
+});
+
 
 }//NOTJQ ELSE
